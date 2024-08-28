@@ -1,0 +1,35 @@
+{
+    "train_micro_batch_size_per_gpu": "auto",
+    "zero_allow_untested_optimizer": true,
+    "fp16":
+    {
+        "enabled": "auto",
+        "loss_scale": 0,
+        "initial_scale_power": 16,
+        "loss_scale_window": 1000,
+        "hysteresis": 2,
+        "min_loss_scale": 1
+    },
+    "zero_optimization":
+    {
+        "stage": 3,
+        "overlap_comm": true,
+        "contiguous_gradients": true,
+        "sub_group_size": 1E+9,
+        "reduce_bucket_size": "auto",
+        "stage3_prefetch_bucket_size": "auto",
+        "stage3_param_persistence_threshold": "auto",
+        "stage3_max_live_parameters": 1E+9,
+        "stage3_max_reuse_distance": 1E+9,
+        "stage3_gather_16bit_weights_on_model_save": true
+    },
+    "flops_profiler":
+    {
+        "enabled": true,
+        "profile_step": 20,
+        "module_depth": -1,
+        "top_modules": 1,
+        "detailed": true,
+        "output_file": null
+    }
+}
